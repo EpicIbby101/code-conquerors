@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  getAuth,
   signInWithPopup,
   signOut,
   GoogleAuthProvider,
@@ -53,8 +52,7 @@ function Header() {
 
   return (
     <header className="text-gray-600 body-font shadow-lg">
-      <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
-
+      <div className="container mx-auto flex flex-wrap p-3 flex-row items-center justify-between">
         <Link
           to="/"
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
@@ -88,41 +86,43 @@ function Header() {
             Quizzes
           </Link>
         </nav>
-        
-        {user ? (
-          <div className="relative group">
+
+        <div className="flex items-center">
+          {user ? (
+            <div className="relative group">
+              <button
+                type="button"
+                onClick={toggleDropdown}
+                className="focus:outline-none relative flex items-center"
+              >
+                <img
+                  src={user.photoURL}
+                  alt="User Profile"
+                  className="w-10 h-10 rounded-full"
+                />
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-32 py-2 w-40 bg-white border rounded-lg shadow-lg text-left">
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      className="px-4 py-2 w-full text-left hover:bg-gray-200"
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                )}
+              </button>
+            </div>
+          ) : (
             <button
               type="button"
-              onClick={toggleDropdown}
-              className="focus:outline-none relative flex items-center"
+              onClick={handleSignIn}
+              className="focus:outline-none text-white bg-purple-500 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5"
             >
-              <img
-                src={user.photoURL}
-                alt="User Profile"
-                className="w-10 h-10 rounded-full"
-              />
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-32 py-2 w-40 bg-white border rounded-lg shadow-lg text-left">
-                  <button
-                    type="button"
-                    onClick={handleSignOut}
-                    className="px-4 py-2 w-full text-left hover:bg-gray-200"
-                  >
-                    Log Out
-                  </button>
-                </div>
-              )}
+              Sign-in
             </button>
-          </div>
-        ) : (
-          <button
-            type="button"
-            onClick={handleSignIn}
-            className="focus:outline-none text-white bg-purple-500 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5"
-          >
-            Sign-in
-          </button>
-        )}
+          )}
+        </div>
       </div>
     </header>
   );
