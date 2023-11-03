@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   getAuth,
   signInWithPopup,
   signOut,
   GoogleAuthProvider,
-} from 'firebase/auth';
-import { auth } from '../firebase';
+} from "firebase/auth";
+import { auth } from "../firebase";
+import "../styles/Header.css";
 
 function Header() {
   const [user, setUser] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -38,17 +40,25 @@ function Header() {
     signOut(auth)
       .then(() => {
         setUser(null);
-        console.log('Successfully signed out');
+        console.log("Successfully signed out");
       })
       .catch((error) => {
         console.error(`Sign-out error: ${error.message}`);
       });
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <header className="text-gray-600 body-font shadow-lg">
       <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
-        <Link to="/" className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+
+        <Link
+          to="/"
+          className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -63,6 +73,7 @@ function Header() {
           </svg>
           <span className="ml-3 text-xl">Code Conquerors</span>
         </Link>
+
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           <Link to="/" className="mr-5 hover:text-gray-900">
             Home
@@ -77,22 +88,30 @@ function Header() {
             Quizzes
           </Link>
         </nav>
+        
         {user ? (
-          <div className="flex items-center">
-            {user.displayName && (
+          <div className="relative group">
+            <button
+              type="button"
+              onClick={toggleDropdown}
+              className="focus:outline-none relative flex items-center"
+            >
               <img
                 src={user.photoURL}
                 alt="User Profile"
-                className="w-10 h-10 rounded-full mr-2"
-                referrerpolicy="no-referrer"
+                className="w-10 h-10 rounded-full"
               />
-            )}
-            <button
-              type="button"
-              onClick={handleSignOut}
-              className="focus:outline-none text-white bg-purple-500 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5"
-            >
-              Sign-out
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-32 py-2 w-40 bg-white border rounded-lg shadow-lg text-left">
+                  <button
+                    type="button"
+                    onClick={handleSignOut}
+                    className="px-4 py-2 w-full text-left hover:bg-gray-200"
+                  >
+                    Log Out
+                  </button>
+                </div>
+              )}
             </button>
           </div>
         ) : (
