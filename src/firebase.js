@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
+// TODO: PLACE ANY SENSITIVE DATA IN A .ENV
 const firebaseConfig = {
     apiKey: "AIzaSyBhIUqFmOx_a3AsiMAX2jXMSxGIKXO7NEg",
     authDomain: "code-conquerors.firebaseapp.com",
