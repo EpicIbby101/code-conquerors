@@ -6,7 +6,6 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import "../styles/Header.css";
 
 function Header() {
   const [user, setUser] = useState(null);
