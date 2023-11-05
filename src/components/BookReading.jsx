@@ -11,8 +11,12 @@ const BookSearch = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
   const defaultImageURL = noImage; // Specify your custom default image URL.
+  const [loading, setLoading] = useState(false);
+
 
   const handleSearch = async () => {
+    setLoading(true); // Set loading to true when a search is initiated.
+
     try {
       const response = await axios.get(
         `https://openlibrary.org/search.json?q=${query}`
@@ -24,7 +28,9 @@ const BookSearch = () => {
       }
     } catch (error) {
       console.error("Error fetching data:", error);
-    }
+    } finally {
+        setLoading(false); // Set loading to false after the search is complete.
+      }
   };
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -97,28 +103,38 @@ const BookSearch = () => {
       </div>
 
       <div className="mt-5 mb-10">
-        {books.length > itemsPerPage && (
-          <div className="flex items-center justify-center space-x-4">
-            {currentPage > 1 && (
-              <button
-                onClick={() => paginate(currentPage - 1)}
-                className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
-              >
-                <ArrowBackIcon fontSize="large" />
-              </button>
-            )}
-            <p className="text-xl font-semibold">Page {currentPage}</p>
-            {indexOfLastItem < books.length && (
-              <button
-                onClick={() => paginate(currentPage + 1)}
-                className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
-              >
-                <ArrowForwardIcon fontSize="large" />
-              </button>
-            )}
-          </div>
+  {loading ? (
+    // Show a loading indicator while loading
+    <div className="flex items-center justify-center space-x-4">
+      <p className="text-xl font-semibold">Loading...</p>
+    </div>
+  ) : (
+    // Show the pagination controls when not loading and search results are available
+    books.length > 0 && (
+      <div className="flex items-center justify-center space-x-4">
+        {currentPage > 1 && (
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
+          >
+            <ArrowBackIcon fontSize="large" />
+          </button>
+        )}
+        <p className="text-xl font-semibold">Page {currentPage}</p>
+        {indexOfLastItem < books.length && (
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
+          >
+            <ArrowForwardIcon fontSize="large" />
+          </button>
         )}
       </div>
+    )
+  )}
+</div>
+
+
     </div>
   );
 };
