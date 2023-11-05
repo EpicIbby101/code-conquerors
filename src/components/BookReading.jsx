@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import noImage from "../assets/Noimage.png";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import headerImage from '../assets/Synth.png'
+
 
 const BookSearch = () => {
   const [query, setQuery] = useState("");
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(12);
   const defaultImageURL = noImage; // Specify your custom default image URL.
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
@@ -45,8 +45,8 @@ const BookSearch = () => {
   return (
     <div className="container mx-auto p-4">
       <div className="lg:flex lg:flex-col space-y-4">
-        <div className="lg:w-1/2">
-          <h2 className="text-2xl font-semibold mb-2">Browse our vast online library of books!</h2>
+        <div className="lg:w-1/2 mx-auto mt-20 text-center">
+          <h2 className="text-4xl font-bold mb-2">Browse our vast online library of books!</h2>
           <p className="text-md mb-3">
             We've amassed a large collection of programming books to help you get the most out of your studies.
           </p>
@@ -56,41 +56,41 @@ const BookSearch = () => {
               placeholder="Search for programming books..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="border p-2 rounded-l-md w-full "
+              className="border p-2 rounded-l-md w-full"
             />
             <button
               onClick={handleSearch}
-              className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-r-md ml-1 px-5"
+              className="bg-purple-500 hover-bg-purple-600 text-white p-2 rounded-r-md ml-1 px-5"
             >
               Search
             </button>
           </div>
         </div>
-        
-        <div className="lg:grid lg:grid-cols-2 lg:gap-4">
+
+        <div className="lg:grid lg:grid-cols-4 lg:gap-4 mx-20 px-32"> {/* 4 columns for large screens */}
           {searched && !loading && books.length === 0 ? (
             <p className="text-lg text-red-500 mt-4 lg:mt-0">Whoops, we couldn't find that 🙁</p>
           ) : (
             // Render search results when there are results
             currentBooks.map((book) => (
-              <div key={book.key} className="border p-4 rounded-md flex items-center mb-2">
+              <div key={book.key} className="border pt-10 p-2 rounded-md mb-2">
                 <img
                   src={
                     book.cover_i
-                      ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+                      ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`
                       : defaultImageURL
                   }
                   alt={`Cover for ${book.title}`}
-                  className="w-24 h-32 object-cover mr-4"
+                  className="w-32 h-48 mx-auto mb-2"
                 />
-                <div>
-                  <h3 className="text-lg font-semibold">{book.title}</h3>
+                <div className="text-center">
+                  <h3 className="text-md font-semibold">{book.title}</h3>
                   <p className="text-gray-600">{book.author_name?.join(', ')}</p>
                   <a
                     href={`https://openlibrary.org${book.key}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500"
+                    className="text-blue-500 block mt-2"
                   >
                     Read Online
                   </a>
@@ -114,7 +114,7 @@ const BookSearch = () => {
                   onClick={() => paginate(currentPage - 1)}
                   className="p-2 rounded-full bg-purple-500 hover:bg-purple-600 text-white cursor-pointer"
                 >
-                  <ArrowBackIcon fontSize="large" />
+                  Prev
                 </button>
               )}
               <p className="text-xl font-semibold">Page {currentPage}</p>
@@ -123,7 +123,7 @@ const BookSearch = () => {
                   onClick={() => paginate(currentPage + 1)}
                   className="p-2 rounded-full bg-purple-500 hover:bg-purple-600 text-white cursor-pointer"
                 >
-                  <ArrowForwardIcon fontSize="large" />
+                  Next
                 </button>
               )}
             </div>
