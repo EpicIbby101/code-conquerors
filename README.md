@@ -18,7 +18,7 @@ Code Conquerors is your gateway to an extensive online library that empowers you
 - Tailwind CSS
 - React.js
 - YouTube API
-- Book API
+- Open Library API
 - Quiz API
 
 ## License
@@ -31,6 +31,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgements
 
  - YouTube API
- - Book API
+ - Open Library API
  - Quiz API
 
