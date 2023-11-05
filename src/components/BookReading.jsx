@@ -2,9 +2,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import noImage from "../assets/Noimage.png";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const BookSearch = () => {
   const [query, setQuery] = useState("");
@@ -39,83 +38,83 @@ const BookSearch = () => {
   return (
     <div>
       <div className="mb-8">
-        <div className="ml-3">
-        <h2 className="text-2xl font-semibold mb-0">
-          Browse our vast online library of books!
-        </h2>
-        <p className="text-md mb-2">
-          We've amassed a large collection of programming books to help you get
-          the most out of your studies
-        </p>
-        <div className="flex">
-          <input
-            type="text"
-            placeholder="Search for programming books..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="border p-2 rounded-l-md w-1/4"
-          />
-          <button
-            onClick={handleSearch}
-            className="bg-blue-500 text-white p-2 rounded-r-md ml-2"
-          >
-            Search
-          </button>
-        </div>
+        <div className="ml-4 mt-5">
+          <h2 className="text-2xl font-semibold mb-0">
+            Browse our vast online library of books!
+          </h2>
+          <p className="text-md mb-2">
+            We've amassed a large collection of programming books to help you
+            get the most out of your studies
+          </p>
+          <div className="flex">
+            <input
+              type="text"
+              placeholder="Search for programming books..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="border p-2 rounded-l-md w-1/4"
+            />
+            <button
+              onClick={handleSearch}
+              className="bg-blue-500 text-white p-2 rounded-r-md ml-2"
+            >
+              Search
+            </button>
+          </div>
         </div>
       </div>
       <div className="container mx-auto p-4">
-  <div className="grid grid-cols-2 gap-4">
-    {currentBooks.map((book) => (
-      <div
-        key={book.key}
-        className="border p-4 rounded-md flex items-center"
-      >
-        <img
-          src={
-            book.cover_i
-              ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
-              : defaultImageURL
-          }
-          alt={`Cover for ${book.title}`}
-          className="w-24 h-32 object-cover mr-4"
-        />
-        <div>
-          <h3 className="text-lg font-semibold">{book.title}</h3>
-          <p className="text-gray-600">{book.author_name?.join(", ")}</p>
-          <a
-            href={`https://openlibrary.org${book.key}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500"
-          >
-            Read Online
-          </a>
+        <div className="grid grid-cols-2 gap-4">
+          {currentBooks.map((book) => (
+            <div
+              key={book.key}
+              className="border p-4 rounded-md flex items-center"
+            >
+              <img
+                src={
+                  book.cover_i
+                    ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+                    : defaultImageURL
+                }
+                alt={`Cover for ${book.title}`}
+                className="w-24 h-32 object-cover mr-4"
+              />
+              <div>
+                <h3 className="text-lg font-semibold">{book.title}</h3>
+                <p className="text-gray-600">{book.author_name?.join(", ")}</p>
+                <a
+                  href={`https://openlibrary.org${book.key}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500"
+                >
+                  Read Online
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
 
-<div className="mt-5 mb-10">
+      <div className="mt-5 mb-10">
         {books.length > itemsPerPage && (
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center space-x-4">
             {currentPage > 1 && (
-              <ArrowBackIcon
+              <button
                 onClick={() => paginate(currentPage - 1)}
-                style={{ cursor: "pointer" }}
-                color="primary"
-                fontSize="large"
-              />
+                className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
+              >
+                <ArrowBackIcon fontSize="large" />
+              </button>
             )}
-            <p className="text-xl">Page {currentPage}</p>
+            <p className="text-xl font-semibold">Page {currentPage}</p>
             {indexOfLastItem < books.length && (
-              <ArrowForwardIcon
+              <button
                 onClick={() => paginate(currentPage + 1)}
-                style={{ cursor: "pointer" }}
-                color="primary"
-                fontSize="large"
-              />
+                className="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"
+              >
+                <ArrowForwardIcon fontSize="large" />
+              </button>
             )}
           </div>
         )}
