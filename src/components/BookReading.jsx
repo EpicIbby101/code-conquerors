@@ -82,11 +82,11 @@ const BookSearch = () => {
               placeholder="Search for programming books..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="border p-3 rounded-l-full w-full"
+              className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
             />
             <button
               onClick={handleSearch}
-              className="bg-purple-500 hover-bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6"
+              className="bg-purple-500 hover-bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7"
             >
               Search
             </button>
