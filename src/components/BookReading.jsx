@@ -1,9 +1,8 @@
 // BookSearch.js
 import React, { useState } from "react";
 import axios from "axios";
-import noImage from "../assets/Noimage.png";
-import headerImage from '../assets/Synth.png'
-
+import noImage from "../assets/cover_not_found.jpg";
+import headerImage from "../assets/Synth.png";
 
 const BookSearch = () => {
   const [query, setQuery] = useState("");
@@ -17,6 +16,7 @@ const BookSearch = () => {
   const handleSearch = async () => {
     setLoading(true);
     setSearched(true); // A search has been performed
+    setBooks([]);
 
     try {
       const response = await axios.get(
@@ -28,7 +28,7 @@ const BookSearch = () => {
         setCurrentPage(1);
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     } finally {
       setLoading(false);
     }
@@ -42,13 +42,39 @@ const BookSearch = () => {
     setCurrentPage(pageNumber);
   };
 
+  function formatAuthors(authors) {
+    if (!authors) return "Unknown";
+
+    const maxAuthors = 1; // Set the maximum number of displayed authors
+
+    if (authors.length <= maxAuthors) {
+      return authors.join(", ");
+    } else {
+      const displayedAuthors = authors.slice(0, maxAuthors).join(", ");
+      const remainingAuthors = authors.length - maxAuthors;
+      return `${displayedAuthors} + ${remainingAuthors} more`;
+    }
+  }
+
+  function truncateTitle(title) {
+    const words = title.split(' ');
+    if (words.length > 4) {
+      return words.slice(0, 4).join(' ') + '...';
+    }
+    return title;
+  }
+
   return (
-    <div className="container mx-auto p-4">
-      <div className="lg:flex lg:flex-col space-y-4">
-        <div className="lg:w-1/2 mx-auto mt-20 text-center">
-          <h2 className="text-4xl font-bold mb-2">Browse our vast online library of books!</h2>
-          <p className="text-md mb-3">
-            We've amassed a large collection of programming books to help you get the most out of your studies.
+    <div className="container mx-0 p-0">
+      <div className="lg:flex lg:flex-col space-y-4 ">
+        <div className="bg-[url('../assets/Synth.png')] bg-no-repeat bg-cover bg-center pb-32 w-screen">
+        <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
+          <h2 className="text-4xl md:text-4xl sm:text-4xl font-bold mb-3 text-white mt-32">
+            Browse Our Vast Online Library of Books!
+          </h2>
+          <p className="text-md md:text-lg sm:text-lg mb-4 text-white">
+            We've amassed a large collection of programming books to help you
+            get the most out of your studies. HTML, JavaScript, Python and even React, we got it all.
           </p>
           <div className="flex">
             <input
@@ -56,43 +82,63 @@ const BookSearch = () => {
               placeholder="Search for programming books..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="border p-2 rounded-l-md w-full"
+              className="border p-3 rounded-l-full w-full"
             />
             <button
               onClick={handleSearch}
-              className="bg-purple-500 hover-bg-purple-600 text-white p-2 rounded-r-md ml-1 px-5"
+              className="bg-purple-500 hover-bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6"
             >
               Search
             </button>
           </div>
+          </div>
         </div>
 
-        <div className="lg:grid lg:grid-cols-4 lg:gap-4 mx-20 px-32"> {/* 4 columns for large screens */}
+        {searched && books.length > 0 && ( // Conditionally render the message
+          <div className="text-center md:text-start mx-0 md:mx-60 mb-4">
+            <p className="text-lg text-gray-600">
+              Your search results for <strong>{query}</strong>
+            </p>
+          </div>
+        )}
+
+        <div className="lg:grid lg:grid-cols-4 lg:gap-4 mx-0 md:mx-0 lg:mx-0 xl:mx-24 px-32 md:grid md:grid-cols-2 md:gap-2 sm:grid sm:grid-cols-1 sm:gap-2">
           {searched && !loading && books.length === 0 ? (
-            <p className="text-lg text-red-500 mt-4 lg:mt-0">Whoops, we couldn't find that 🙁</p>
+            <p className="text-lg text-red-500 mt-4 lg:mt-0">
+              Whoops, we couldn't find that 🙁
+            </p>
           ) : (
-            // Render search results when there are results
             currentBooks.map((book) => (
-              <div key={book.key} className="border pt-10 p-2 rounded-md mb-2">
+              <div
+                key={book.key}
+                className="shadow-lg hover:shadow-2xl p-4 rounded-sm mb-2 mx-2 flex flex-col items-center justify-between"
+              >
                 <img
                   src={
                     book.cover_i
-                      ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`
+                      ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
                       : defaultImageURL
                   }
                   alt={`Cover for ${book.title}`}
                   className="w-32 h-48 mx-auto mb-2"
                 />
                 <div className="text-center">
-                  <h3 className="text-md font-semibold">{book.title}</h3>
-                  <p className="text-gray-600">{book.author_name?.join(', ')}</p>
+                  <h3 className="text-md md:text-lg sm:text-xs font-bold">
+                  {truncateTitle(book.title)}
+                  </h3>
+                  <p className="text-gray-600 md:text-xs sm:text-xxs">
+                    <span className="font-bold">Author:</span> {formatAuthors(book.author_name)}
+                  </p>
+                  <p className="text-gray-600 md:text-xs sm:text-xxs">
+                  <span className="font-bold">First Publish Year:</span> {book.first_publish_year}
+                  </p>
                   <a
                     href={`https://openlibrary.org${book.key}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 block mt-2"
                   >
-                    Read Online
+                    Get Your Copy
                   </a>
                 </div>
               </div>
@@ -104,7 +150,9 @@ const BookSearch = () => {
       <div className="mt-5 mb-10">
         {loading ? (
           <div className="flex items-center justify-center space-x-4">
-            <p className="text-xl font-semibold">Loading...</p>
+            <p className="text-xl md:text-lg sm:text-md font-semibold">
+              Loading...
+            </p>
           </div>
         ) : (
           books.length > 0 && (
@@ -117,7 +165,9 @@ const BookSearch = () => {
                   Prev
                 </button>
               )}
-              <p className="text-xl font-semibold">Page {currentPage}</p>
+              <p className="text-xl md:text-lg sm:text-md font-semibold">
+                Page {currentPage}
+              </p>
               {indexOfLastItem < books.length && (
                 <button
                   onClick={() => paginate(currentPage + 1)}
