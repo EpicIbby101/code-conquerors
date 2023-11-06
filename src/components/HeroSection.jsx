@@ -2,25 +2,15 @@ import React from 'react'
 
 const HeroSection = () => {
     return (
-        <div heroSection className="font-bold px-6 py-3 text-black rounded-md">
-            <h1>Code Conquerors</h1>
+        <div heroSection>
+            <div class="container mx-auto px-4 py-10 bg-black">
+                <div title className="text-left font-bold px-6 py-3 text-white rounded-md">
+                    <h1>Code Conquerors</h1>
+                </div>
+                <img src=""></img>
+            </div>
         </div>
     )
 }
-
-
-
-// class HeroStyle extends React.Component {
-//     render() {
-//       return (
-//         <div>
-//         <h1 style={{color: "red"}}></h1>
-//         </div>
-//       );
-//     }
-//   }
-
-
-
 
 export default HeroSection
