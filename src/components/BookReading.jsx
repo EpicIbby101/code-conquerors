@@ -65,9 +65,9 @@ const BookSearch = () => {
   }
 
   return (
-    <div className="container mx-0 p-0">
+    <div className="">
       <div className="lg:flex lg:flex-col space-y-4 ">
-        <div className="bg-[url('../assets/Synth.png')] bg-no-repeat bg-cover bg-center pb-32 w-screen">
+        <div className="bg-[url('../assets/Synth.png')] bg-no-repeat bg-cover bg-center pb-32 w-full">
         <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
           <h2 className="text-4xl md:text-4xl sm:text-4xl font-bold mb-3 text-white mt-32">
             Browse Our Vast Online Library of Books!
@@ -111,7 +111,7 @@ const BookSearch = () => {
             currentBooks.map((book) => (
               <div
                 key={book.key}
-                className="shadow-lg hover:shadow-2xl p-4 rounded-sm mb-2 mx-2 flex flex-col items-center justify-between"
+                className="shadow-lg hover:shadow-2xl p-4 rounded-sm mb-2 mx-2 flex flex-col items-center justify-between transition-transform transform hover:scale-105"
               >
                 <img
                   src={
@@ -120,7 +120,7 @@ const BookSearch = () => {
                       : defaultImageURL
                   }
                   alt={`Cover for ${book.title}`}
-                  className="w-32 h-48 mx-auto mb-2"
+                  className="w-32 h-48 mx-auto mb-2 transition-transform transform hover:scale-105"
                 />
                 <div className="text-center">
                   <h3 className="text-md md:text-lg sm:text-xs font-bold">
