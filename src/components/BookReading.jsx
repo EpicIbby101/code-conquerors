@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import noImage from "../assets/cover_not_found.jpg";
-import headerImage from "../assets/Synth.png";
 
 const BookSearch = () => {
   const [query, setQuery] = useState("");
