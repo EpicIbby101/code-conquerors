@@ -13,8 +13,6 @@ const BookSearch = () => {
   const [searched, setSearched] = useState(false);
   const [hoveredBook, setHoveredBook] = useState(null);
   const [savedBooks, setSavedBooks] = useState([]);
-  const [recentlySearched, setRecentlySearched] = useState([]);
-
 
   const handleSearch = async () => {
     setLoading(true);
