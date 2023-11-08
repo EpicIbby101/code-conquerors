@@ -24,7 +24,7 @@ const Footer = () => {
                 </div>
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <span class="text-sm text-amber-300 sm:text-center dark:text-gray-400">© 2023 <a class="hover:underline">Code Conquerors™</a>. All Rights Reserved.
+                    <span class="text-sm text-amber-200 sm:text-center dark:text-gray-400">© 2023 <a class="hover:underline">Code Conquerors™</a>. All Rights Reserved.
                     </span>
                     <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                         <a href="#" class="text-amber-200 hover:text-neutral-500 dark:hover:text-white">

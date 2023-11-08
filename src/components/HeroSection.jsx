@@ -4,7 +4,7 @@ import heroImage from "../images/heroImage.jpg"
 const HeroSection = () => {
     return (
         <div heroSection>
-            <div class="container mx-auto px-4 py-10 bg-neutral-800 flex items-center justify-between">
+            <div class="container mx-auto px-4 py-20 mb-10 bg-neutral-800 flex items-center justify-between">
                 <div className="text-left font-bold text-xl px-20 py-40 text-rose-300 rounded-md">
                     <h1>Code Conquerors</h1>
 
@@ -25,7 +25,7 @@ const HeroSection = () => {
                     </button>
                 </div>
                 <div>
-                    <img class="rounded-lg shadow-lg shadow-neutral-900 mr-20" src={heroImage} alt="Many lines of colourful code" ></img>
+                    <img class="flex justify-between rounded-lg shadow-lg shadow-neutral-900 mr-20" src={heroImage} alt="Many lines of colourful code" ></img>
                 </div>
             </div>
         </div>
