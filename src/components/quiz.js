@@ -2,8 +2,10 @@ import { useContext } from "react";
 import Question from "./questions";
 import { QuizContext } from "../contexts/quiz";
 
+// The Quiz component is the main component that manages the quiz state and renders the quiz interface.
 const Quiz = () => {
     const [quizState, dispatch] = useContext(QuizContext);
+    // The Quiz component renders different sections based on whether the quiz has ended or not.
     return (
         <div className="quiz">
             {quizState.showResults && (
@@ -17,7 +19,7 @@ const Quiz = () => {
                         </div>
                     </div>
                     <div
-                        onClick={() => dispatch({ type: "RESTART" })}
+                        onClick={() => dispatch({ type: "RESTART" })} // restarts the quiz 
                         className="next-button"
                     >
                         Restart
@@ -44,5 +46,5 @@ const Quiz = () => {
         </div>
     );
 };
-
+// Export the Quiz component for use in other parts of the application.
 export default Quiz;
