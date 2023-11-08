@@ -8,7 +8,7 @@ const HeroSection = () => {
                 <div className="text-left font-bold text-xl px-20 py-40 text-rose-300 rounded-md">
                     <h1>Code Conquerors</h1>
 
-                    <div className="text-left font-bold text-5xl py-10 text-white rounded-md">
+                    <div className="text-left font-bold text-5xl py-10 text-rose-200 rounded-md">
                         <h2>Learn to code from home!</h2>
                     </div>
 

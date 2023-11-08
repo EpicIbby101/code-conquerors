@@ -53,14 +53,14 @@ function Header() {
   };
 
   return (
-    <header className="text-gray-600 body-font shadow-lg">
+    <header className="fixed w-full top-0px border-2 border-neutral-700 bg-neutral-800 text-rose-200 body-font shadow-lg">
       <div className="container mx-auto flex flex-wrap p-3 flex-row items-center justify-between">
         <Link
           to="/"
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
         >
           <img src={cclogo} alt="cc-logo" className="w-12 h-12"/>
-          <span className="ml-3 text-2xl">Code Conquerors</span>
+          <span className="ml-3 text-2xl text-rose-200">Code Conquerors</span>
         </Link>
 
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -115,9 +115,9 @@ function Header() {
             <button
               type="button"
               onClick={handleSignIn}
-              className="focus:outline-none text-white bg-purple-500 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5"
+              className="focus:outline-none text-black bg-gradient-to-r from-rose-300 to-amber-200 shadow-lg shadow-neutral-900 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5"
             >
-              Sign-in
+              Sign in
             </button>
           )}
         </div>

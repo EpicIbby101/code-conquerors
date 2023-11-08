@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <a className="flex items-center mb-4 sm:mb-0">
                         <img src={logo} className="h-8 mr-3" alt="Code Conquerors Logo" />
-                        <span className="self-center text-2xl text-white font-semibold whitespace-nowrap">Code Conquerors</span>
+                        <span className="self-center text-2xl text-rose-200 font-semibold whitespace-nowrap">Code Conquerors</span>
                     </a>
                     <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                         <li>
@@ -24,10 +24,10 @@ const Footer = () => {
                 </div>
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <span class="text-sm text-white sm:text-center dark:text-gray-400">© 2023 <a class="hover:underline">Code Conquerors™</a>. All Rights Reserved.
+                    <span class="text-sm text-amber-300 sm:text-center dark:text-gray-400">© 2023 <a class="hover:underline">Code Conquerors™</a>. All Rights Reserved.
                     </span>
                     <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-                        <a href="#" class="text-amber-200 hover:text-gray-900 dark:hover:text-white">
+                        <a href="#" class="text-amber-200 hover:text-neutral-500 dark:hover:text-white">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                                 <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
                             </svg>
