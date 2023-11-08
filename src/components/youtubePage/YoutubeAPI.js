@@ -5,10 +5,8 @@ const APIKEY = "%20crash%20course%20coding&key=AIzaSyBNnaKYGPDH70xUq3QNi_Jqgqgjj
 
 export default {
   search: function(query) {
-    return (
-        <div>
-          
-        </div>
+    return axios.get(BASEURL + query + APIKEY
+      , console.log(BASEURL + query + APIKEY)
       );
     
   }
