@@ -1,4 +1,4 @@
-import Answer from "./answer";
+import Answer from "./answers"
 import { useContext } from "react";
 import { QuizContext } from "../contexts/quiz";
 
