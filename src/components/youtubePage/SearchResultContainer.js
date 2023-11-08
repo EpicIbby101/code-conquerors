@@ -10,6 +10,12 @@ class SearchResultContainer extends Component {
         results: []
       };
 
+      searchVideo = query => {
+        API.search(query)
+          .then(res => this.setState({ results: res.data.items }))
+          .catch(err => console.log(err));
+      };
+
     }
 
 export default SearchResultContainer;
