@@ -24,8 +24,8 @@ const HeroSection = () => {
                         Search for videos
                     </button>
                 </div>
-                <div className="h-auto max-w-full rounded-lg .transition-shadow">
-                    <img src={heroImage} alt="Many lines of colourful code"></img>
+                <div>
+                    <img class="rounded-lg shadow-xl dark:shadow-gray-800" src={heroImage} alt="Many lines of colourful code" ></img>
                 </div>
             </div>
         </div>
