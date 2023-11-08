@@ -5,6 +5,9 @@ import BookReading from "./components/BookReading";
 import Modal from "react-modal";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
+import "./index.css"
+import Quiz from "./components/quiz"
+import { QuizProvider } from "./contexts/quiz"
 
 const rootElement = document.getElementById("root");
 Modal.setAppElement(rootElement);
@@ -16,7 +19,9 @@ function App() {
         <Header />
         <HeroSection />
         <BookReading />
-
+        <QuizProvider>
+          <Quiz />
+        </QuizProvider>
         <Footer />
       </div>
     </Router>
