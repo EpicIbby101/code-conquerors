@@ -42,7 +42,15 @@ class SearchResultContainer extends Component {
 
       render() {
         return (
-            
+            <div className="bg-black">
+                <SearchForm
+                search={this.state.search}
+                handleFormSubmit={this.handleFormSubmit}
+                handleInputChange={this.handleInputChange}
+                />
+                
+                
+            </div> 
             
             
         
