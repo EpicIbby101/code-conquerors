@@ -5,7 +5,7 @@ import React from "react";
 function SearchForm(props) {
   return (
       <div className="lg:flex lg:flex-col space-y-4 bg-black">
-        <div>
+        <div className="bg-[url('../assets/Synth.png')] bg-no-repeat bg-cover bg-center pb-32 w-full">
             {/* Header and paragraph below at the top of the page */}
             <h2 className=" text-center text-4xl md:text-4xl sm:text-4xl font-bold mb-3 text-amber-200 mt-32">Youtube Video Search</h2>
             <br>
@@ -17,21 +17,28 @@ function SearchForm(props) {
         </div> 
         {/* Form which includes input and button (has props from searchResultsContainer within) */}
         <form  className='search-form'>
-            <div className="flex">
+            <div >
+                <div className="flex">
 
-                <input
-                    onChange={props.handleInputChange}
-                    value={props.search}
-                    name="search"
-                    type="text"
-                    className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
-                    placeholder="Search for programming books..."
-                    id="search"
-                />
-                <button onClick={props.handleFormSubmit} className="bg-rose-300 hover-bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7">
-                Search
-                </button>
-            </div>  
+                    <input
+                        onChange={props.handleInputChange}
+                        value={props.search}
+                        name="search"
+                        type="text"
+                        className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
+                        placeholder="e.g. React, jQuery..."
+                        id="search"
+                    />
+                    <button onClick={props.handleFormSubmit} className="bg-rose-300 hover:bg-rose-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7">
+                    Search
+                    </button>
+
+                    
+                </div>
+                <p className="text-white text-md md:text-lg sm:text-lg mb-4 mt-10 pl-10">
+                        Video Results are presented below
+                    </p>  
+            </div>    
         </form>     
     </div>
   )

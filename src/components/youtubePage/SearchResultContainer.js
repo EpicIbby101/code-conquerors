@@ -50,12 +50,13 @@ class SearchResultContainer extends Component {
                 handleInputChange={this.handleInputChange}
                 />
                 
+                
                 {/* render the API results into the <iframe> embedded youtube video (the videoId into the scr= in the iframe tag) */}
-                <div className="container pb-60 bg-neutral-800">
+                <div className="container pb-60 bg-black">
                     <div className="row row-cols-2 bg-black flex flex-wrap">
                         {this.state.results.map(result => ( 
                 
-                        <div key={result.id} className="col p-4 ml-10 mt-10 flex">
+                        <div key={result.id} className="col p-4 ml-15 flex center">
                             {/*                                                               v Problem FIXXEDDDD */}
                             <iframe title="myFrame" width="560" height="315" src={baseURL + result.id.videoId} frameBorder="0" allowFullScreen></iframe>
                         </div>

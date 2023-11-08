@@ -16,9 +16,9 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <SearchResultContainer /> 
         <HeroSection />
         <BookReading />
+        <SearchResultContainer /> 
 
         <Footer />
       </div>
