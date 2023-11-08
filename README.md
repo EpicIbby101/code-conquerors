@@ -19,7 +19,7 @@ Code Conquerors is your gateway to an extensive online library that empowers you
 - React.js
 - YouTube API
 - Open Library API
-- Quiz API
+- Quiz 
 
 ## License
 
@@ -32,5 +32,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
  - YouTube API
  - Open Library API
- - Quiz API
 
