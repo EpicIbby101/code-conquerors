@@ -16,6 +16,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <div className="bg-neutral-800">
         <Header />
         <HeroSection />
         <BookReading />
@@ -23,6 +24,7 @@ function App() {
           <Quiz />
         </QuizProvider>
         <Footer />
+      </div>
       </div>
     </Router>
   );
