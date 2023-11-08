@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  signInWithPopup,
-  signOut,
-  GoogleAuthProvider,
-} from "firebase/auth";
+import { signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase";
 import AccountModal from "./AccountModal";
+import cclogo from "../assets/cclogo.png";
 
 function Header() {
   const [user, setUser] = useState(null);
@@ -62,19 +59,8 @@ function Header() {
           to="/"
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            className="w-10 h-10 text-white p-2 bg-purple-500 rounded-full"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span className="ml-3 text-xl">Code Conquerors</span>
+          <img src={cclogo} alt="cc-logo" className="w-12 h-12"/>
+          <span className="ml-3 text-2xl">Code Conquerors</span>
         </Link>
 
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
