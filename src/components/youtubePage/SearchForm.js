@@ -16,7 +16,7 @@ function SearchForm(props) {
         </div> 
         <form  className='search-form'>
             <div className="flex">
-            
+
                 <input
                     onChange={props.handleInputChange}
                     value={props.search}
@@ -26,6 +26,9 @@ function SearchForm(props) {
                     placeholder="Search for programming books..."
                     id="search"
                 />
+                <button onClick={props.handleFormSubmit} className="bg-rose-300 hover-bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7">
+                Search
+                </button>
             </div>  
         </form>     
     </div>
