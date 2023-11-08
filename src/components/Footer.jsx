@@ -1,5 +1,5 @@
 import React from 'react'
-import Noimage from '../assets/Noimage.png'
+import logo from '../images/logo-no-text.png'
 
 const Footer = () => {
     return (
@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <a className="flex items-center mb-4 sm:mb-0">
-                        <img src={Noimage} className="h-8 mr-3" alt="Code Conquerors Logo" />
+                        <img src={logo} className="h-8 mr-3" alt="Code Conquerors Logo" />
                         <span className="self-center text-2xl text-white font-semibold whitespace-nowrap">Code Conquerors</span>
                     </a>
                     <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
