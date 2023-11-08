@@ -2,7 +2,9 @@ import React from 'react'
 
 const About = () => {
     return (
-        <div class="container my-24 mx-auto md:px-6">
+        // Review
+        <div class="container bg-neutral-800 my-24 mx-auto md:px-6">
+        {/* Review image */}
         <section class="mb-32">
             <div class="flex flex-wrap">
             <div class="w-full shrink-0 grow-0 basis-auto md:w-2/12 lg:w-3/12">
