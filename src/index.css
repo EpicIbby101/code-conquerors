@@ -51,3 +51,57 @@ div {
     margin-bottom: 30px;
     display: flex;
 }
+
+body {
+    background-color: #e4e4e4;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.quiz {
+    width: 975px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.question {
+    background-color: rgb(77, 10, 116);
+    color: white;
+    padding: 10px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.results {
+    background-color: #fff;
+    height: 300px;
+    text-align: center;
+}
+
+.congratulations {
+    background-color: rgb(77, 10, 116);
+    padding: 20px;
+    font-size: 36px;
+    color: #fff;
+}
+
+.results-info {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.answer {
+    width: 48%;
+    background: #fff;
+    border: 2px solid rgb(77, 10, 116);
+    min-height: 70px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: flex;
+}
