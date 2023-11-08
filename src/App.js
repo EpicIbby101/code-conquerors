@@ -8,7 +8,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-       <SearchResultContainer /> 
+        <SearchResultContainer /> 
       </div>
     </Router>
   );
