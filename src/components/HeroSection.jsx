@@ -14,18 +14,18 @@ const HeroSection = () => {
 
                     <button
                         type="button"
-                        className="focus:outline-none text-black bg-gradient-to-r from-amber-200 to-rose-300 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5">
+                        className="focus:outline-none text-black bg-gradient-to-r from-amber-200 to-rose-300 shadow-lg shadow-neutral-900 font-medium rounded-lg text-sm px-5 py-2.5">
                         Search for books
                     </button>
 
                     <button
                         type="button"
-                        className="focus:outline-none text-black bg-gradient-to-r from-rose-300 to-amber-200 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5 mx-2.5">
+                        className="focus:outline-none text-black bg-gradient-to-r from-rose-300 to-amber-200 shadow-lg shadow-neutral-900 font-medium rounded-lg text-sm px-5 py-2.5 mx-2.5">
                         Search for videos
                     </button>
                 </div>
                 <div>
-                    <img class="rounded-lg shadow-xl dark:shadow-gray-800" src={heroImage} alt="Many lines of colourful code" ></img>
+                    <img class="rounded-lg shadow-lg shadow-neutral-900 mr-20" src={heroImage} alt="Many lines of colourful code" ></img>
                 </div>
             </div>
         </div>
