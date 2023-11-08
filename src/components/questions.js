@@ -2,12 +2,13 @@ import Answer from "./answers"
 import { useContext } from "react";
 import { QuizContext } from "../contexts/quiz";
 
+// The Question component represents a single question in the quiz.
 const Question = () => {
-    const [quizState, dispatch] = useContext(QuizContext);
-    const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
+    const [quizState, dispatch] = useContext(QuizContext);  // Destructure the quizState and dispatch function from the QuizContext
+    const currentQuestion = quizState.questions[quizState.currentQuestionIndex]; // Retrieve the current question object from the quizState based on the currentQuestionIndex
     return (
         <div>
-            <div className="question">{currentQuestion.question}</div>
+            <div className="question">{currentQuestion.question}</div> 
             <div className="answers">
                 {quizState.answers.map((answer, index) => (
                     <Answer
@@ -25,5 +26,5 @@ const Question = () => {
         </div>
     );
 };
-
+// Export the Question component for use in other parts of the application.
 export default Question;

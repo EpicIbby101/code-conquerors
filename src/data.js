@@ -1,3 +1,4 @@
+//* the questions data for the quiz 
 const data = [
     {
         question: "1. What does HTML stand for?",
