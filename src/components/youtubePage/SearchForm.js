@@ -13,7 +13,21 @@ function SearchForm(props) {
                 We have a large collection of suitable programming crash courses/tutorials to help you
                 get the most out of your studies as well. 
             </p>
-        </div>    
+        </div> 
+        <form  className='search-form'>
+            <div className="flex">
+            
+                <input
+                    onChange={props.handleInputChange}
+                    value={props.search}
+                    name="search"
+                    type="text"
+                    className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
+                    placeholder="Search for programming books..."
+                    id="search"
+                />
+            </div>  
+        </form>     
     </div>
   )
 }  
