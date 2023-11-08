@@ -44,8 +44,8 @@ const BookSearch = () => {
       const simplifiedBook = {
         key: book.key,
         title: book.title,
-        author: book.author_name,
-        first_publish_year: book.first_publish_year,
+        author: formatAuthors(book.author_name),
+        first_publish_year: book.first_publish_year || "N/A",
         cover_url: book.cover_i
           ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
           : defaultImageURL,
@@ -124,7 +124,7 @@ const BookSearch = () => {
               />
               <button
                 onClick={handleSearch}
-                className="bg-purple-500 hover-bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7"
+                className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7"
               >
                 Search
               </button>
