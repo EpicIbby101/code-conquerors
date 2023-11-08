@@ -204,7 +204,7 @@ const BookSearch = () => {
         </div>
       </div>
 
-      <div className="mt-5 mb-10">
+      <div className="">
         {loading ? (
           <div className="flex items-center justify-center space-x-4">
             <p className="text-xl md:text-lg sm:text-md font-semibold">

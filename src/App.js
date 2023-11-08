@@ -6,6 +6,10 @@ import Modal from "react-modal";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
 import SearchResultContainer from "./components/youtubePage/SearchResultContainer";
+import "./index.css"
+import Quiz from "./components/quiz"
+import { QuizProvider } from "./contexts/quiz"
+import About from "./components/About"
 
 const rootElement = document.getElementById("root");
 Modal.setAppElement(rootElement);
@@ -20,6 +24,10 @@ function App() {
           <HeroSection />
           <BookReading />
           <SearchResultContainer /> 
+          <QuizProvider>
+          <Quiz />
+          </QuizProvider>
+          <About />
           <Footer />
         </div>
       </div>

@@ -4,11 +4,11 @@ import heroImage from "../images/heroImage.jpg"
 const HeroSection = () => {
     return (
         <div heroSection>
-            <div class="container mx-auto px-4 py-10 bg-neutral-800 flex items-center justify-between">
-                <div className="text-left font-bold text-xl px-20 py-40 text-rose-300 rounded-md">
+            <div class="container mx-auto px-4 py-20 pt-30 bg-neutral-800 flex items-center justify-between">
+                <div className="text-left font-bold text-xl px-20 py-32 text-rose-300 rounded-md">
                     <h1>Code Conquerors</h1>
 
-                    <div className="text-left font-bold text-5xl py-10 text-white rounded-md">
+                    <div className="text-left font-bold text-6xl py-10 text-rose-200 rounded-md">
                         <h2>Learn to code from home!</h2>
                     </div>
 
@@ -25,7 +25,7 @@ const HeroSection = () => {
                     </button>
                 </div>
                 <div>
-                    <img class="rounded-lg shadow-lg shadow-neutral-900 mr-20" src={heroImage} alt="Many lines of colourful code" ></img>
+                    <img class="flex justify-between rounded-lg shadow-lg shadow-neutral-900 h-full w-auto mt-14 mr-24" src={heroImage} alt="Many lines of colourful code" ></img>
                 </div>
             </div>
         </div>
