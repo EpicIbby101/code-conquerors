@@ -3,7 +3,7 @@ import Noimage from '../assets/Noimage.png'
 
 const Footer = () => {
     return (
-        <footer className="bg-neutral-800 shadow dark:bg-gray-900">
+        <footer className="bg-neutral-900 shadow dark:bg-gray-900">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <a className="flex items-center mb-4 sm:mb-0">

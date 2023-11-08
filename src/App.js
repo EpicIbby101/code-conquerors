@@ -15,12 +15,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
-        <HeroSection />
-        <BookReading />
-        <SearchResultContainer /> 
-
-        <Footer />
+        <div className="bg-neutral-800">
+          <Header />
+          <HeroSection />
+          <BookReading />
+          <SearchResultContainer /> 
+          <Footer />
+        </div>
       </div>
     </Router>
   );
