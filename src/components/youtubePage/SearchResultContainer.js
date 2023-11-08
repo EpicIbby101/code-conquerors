@@ -39,6 +39,15 @@ class SearchResultContainer extends Component {
         console.log(this.state.results)
         
       };
+
+      render() {
+        return (
+            
+            
+            
+        
+        )
+    }
     
 
     }
