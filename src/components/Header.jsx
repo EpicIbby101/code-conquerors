@@ -6,10 +6,12 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import AccountModal from "./AccountModal";
 
 function Header() {
   const [user, setUser] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -47,6 +49,10 @@ function Header() {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleAccountModal = () => {
+    setIsAccountModalOpen(!isAccountModalOpen);
   };
 
   return (
@@ -103,6 +109,13 @@ function Header() {
                   <div className="absolute right-0 mt-32 py-2 w-40 bg-white border rounded-lg shadow-lg text-left">
                     <button
                       type="button"
+                      onClick={toggleAccountModal}
+                      className="px-4 py-2 w-full text-left hover:bg-gray-200"
+                    >
+                      Account
+                    </button>
+                    <button
+                      type="button"
                       onClick={handleSignOut}
                       className="px-4 py-2 w-full text-left hover:bg-gray-200"
                     >
@@ -123,6 +136,11 @@ function Header() {
           )}
         </div>
       </div>
+
+      <AccountModal
+        isOpen={isAccountModalOpen}
+        onRequestClose={toggleAccountModal}
+      />
     </header>
   );
 }
