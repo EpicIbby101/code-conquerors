@@ -22,7 +22,7 @@ const AccountModal = ({ isOpen, onRequestClose, user }) => {
   useEffect(() => {
     const savedBooksData = JSON.parse(localStorage.getItem("savedBooks")) || [];
     setSavedBooks(savedBooksData);
-  }, []);
+  }, [isOpen]);
 
   const handleUnsave = (index) => {
     const updatedSavedBooks = [...savedBooks];
@@ -55,6 +55,7 @@ const AccountModal = ({ isOpen, onRequestClose, user }) => {
       onRequestClose={onRequestClose}
       contentLabel="Account Modal"
       style={customStyles}
+      
     >
       <div className="flex items-center mb-2 bg-black p-2 mt-8">
         {user && user.photoURL && (

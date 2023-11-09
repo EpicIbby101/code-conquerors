@@ -38,34 +38,37 @@ const BookSearch = () => {
   };
 
   const handleSaveBook = (book) => {
-    const savedBookIndex = savedBooks.findIndex(
-      (savedBook) => savedBook.key === book.key
-    );
-
-    if (savedBookIndex === -1) {
-      // Book is not saved, so save it
-      const simplifiedBook = {
-        key: book.key,
-        title: book.title,
-        author: formatAuthors(book.author_name),
-        first_publish_year: book.first_publish_year || "N/A",
-        cover_url: book.cover_i
-          ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
-          : defaultImageURL,
-      };
-
-      const updatedSavedBooks = [...savedBooks, simplifiedBook];
-      setSavedBooks(updatedSavedBooks);
-      localStorage.setItem("savedBooks", JSON.stringify(updatedSavedBooks));
-    } else {
-      // Book is already saved, so unsave it
-      const updatedSavedBooks = savedBooks.filter(
-        (savedBook) => savedBook.key !== book.key
+    setSavedBooks((prevSavedBooks) => {
+      const savedBookIndex = prevSavedBooks.findIndex(
+        (savedBook) => savedBook.key === book.key
       );
-      setSavedBooks(updatedSavedBooks);
-      localStorage.setItem("savedBooks", JSON.stringify(updatedSavedBooks));
-    }
+  
+      if (savedBookIndex === -1) {
+        // Book is not saved, so save it
+        const simplifiedBook = {
+          key: book.key,
+          title: book.title,
+          author: formatAuthors(book.author_name),
+          first_publish_year: book.first_publish_year || "N/A",
+          cover_url: book.cover_i
+            ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+            : defaultImageURL,
+        };
+  
+        const updatedSavedBooks = [...prevSavedBooks, simplifiedBook];
+        localStorage.setItem("savedBooks", JSON.stringify(updatedSavedBooks));
+        return updatedSavedBooks;
+      } else {
+        // Book is already saved, so unsave it
+        const updatedSavedBooks = prevSavedBooks.filter(
+          (savedBook) => savedBook.key !== book.key
+        );
+        localStorage.setItem("savedBooks", JSON.stringify(updatedSavedBooks));
+        return updatedSavedBooks;
+      }
+    });
   };
+  
 
   useEffect(() => {
     const savedBooksData = localStorage.getItem("savedBooks");
@@ -105,9 +108,14 @@ const BookSearch = () => {
     return title;
   }
 
+  const updateSavedBooks = (updatedSavedBooks) => {
+    setSavedBooks(updatedSavedBooks);
+  };
+  
+
   return (
     <div className="" id="books">
-      <div className="lg:flex lg:flex-col space-y-4 mb-20">
+      <div className="lg:flex lg:flex-col space-y-4 mb-10">
         <div className="bg-[url('../assets/bookbg.png')] bg-no-repeat bg-cover bg-center pb-28 w-full">
         <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
           <img
