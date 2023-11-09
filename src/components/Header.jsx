@@ -4,6 +4,7 @@ import { signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase";
 import AccountModal from "./AccountModal";
 import cclogo from "../assets/cclogo.png";
+import { Link as ScrollLink } from "react-scroll";
 
 function Header() {
   const [user, setUser] = useState(null);
@@ -51,32 +52,63 @@ function Header() {
   const toggleAccountModal = () => {
     setIsAccountModalOpen(!isAccountModalOpen);
   };
-  
 
   return (
     <header className="fixed w-full top-0px  bg-neutral-900 text-rose-200 body-font shadow-lg z-40">
       <div className="container mx-auto flex flex-wrap p-3 flex-row items-center justify-between">
-        <Link
-          to="#home"
+        <ScrollLink
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
         >
           <img src={cclogo} alt="cc-logo" className="w-12 h-12 ml-3" />
           <span className="ml-3 text-2xl text-rose-300">Code Conquerors</span>
-        </Link>
+        </ScrollLink>
 
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link to="#home" className="mr-5 hover:text-rose-300">
+          <ScrollLink
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="mr-5 hover:text-rose-300"
+          >
             Home
-          </Link>
-          <Link to="#books" className="mr-5 hover:text-rose-300">
+          </ScrollLink>
+          <ScrollLink
+            to="books"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="mr-5 hover:text-rose-300"
+          >
             Books
-          </Link>
-          <Link to="#videos" className="mr-5 hover:text-rose-300">
+          </ScrollLink>
+          <ScrollLink
+            to="videos"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="mr-5 hover:text-rose-300"
+          >
             Videos
-          </Link>
-          <Link to="#quiz" className="mr-5 hover:text-rose-300">
+          </ScrollLink>
+          <ScrollLink
+            to="quiz"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="mr-5 hover:text-rose-300"
+          >
             Quizzes
-          </Link>
+          </ScrollLink>
         </nav>
 
         <div className="flex items-center">
