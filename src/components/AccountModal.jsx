@@ -56,7 +56,7 @@ const AccountModal = ({ isOpen, onRequestClose, user }) => {
       contentLabel="Account Modal"
       style={customStyles}
     >
-      <div className="flex items-center mb-2 bg-black p-2">
+      <div className="flex items-center mb-2 bg-black p-2 mt-8">
         {user && user.photoURL && (
           <img
             src={user.photoURL}

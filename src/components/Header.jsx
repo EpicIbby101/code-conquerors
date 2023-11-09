@@ -51,29 +51,30 @@ function Header() {
   const toggleAccountModal = () => {
     setIsAccountModalOpen(!isAccountModalOpen);
   };
+  
 
   return (
-    <header className="fixed w-full top-0px border-2 border-neutral-700 bg-neutral-800 text-rose-200 body-font shadow-lg">
+    <header className="fixed w-full top-0px  bg-neutral-900 text-rose-200 body-font shadow-lg z-40">
       <div className="container mx-auto flex flex-wrap p-3 flex-row items-center justify-between">
         <Link
-          to="/"
+          to="#home"
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
         >
-          <img src={cclogo} alt="cc-logo" className="w-12 h-12"/>
-          <span className="ml-3 text-2xl text-rose-200">Code Conquerors</span>
+          <img src={cclogo} alt="cc-logo" className="w-12 h-12 ml-3" />
+          <span className="ml-3 text-2xl text-rose-300">Code Conquerors</span>
         </Link>
 
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link to="/" className="mr-5 hover:text-gray-900">
+          <Link to="#home" className="mr-5 hover:text-rose-300">
             Home
           </Link>
-          <Link to="/videos" className="mr-5 hover:text-gray-900">
-            Videos
-          </Link>
-          <Link to="/books" className="mr-5 hover:text-gray-900">
+          <Link to="#books" className="mr-5 hover:text-rose-300">
             Books
           </Link>
-          <Link to="/quizzes" className="mr-5 hover:text-gray-900">
+          <Link to="#videos" className="mr-5 hover:text-rose-300">
+            Videos
+          </Link>
+          <Link to="#quiz" className="mr-5 hover:text-rose-300">
             Quizzes
           </Link>
         </nav>
@@ -92,7 +93,7 @@ function Header() {
                   className="w-10 h-10 rounded-full"
                 />
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-32 py-2 w-40 bg-white border rounded-lg shadow-lg text-left">
+                  <div className="absolute right-0 mt-32 py-2 w-40 bg-white border rounded-lg shadow-lg text-left text-gray-800">
                     <button
                       type="button"
                       onClick={toggleAccountModal}
@@ -115,7 +116,7 @@ function Header() {
             <button
               type="button"
               onClick={handleSignIn}
-              className="focus:outline-none text-black bg-gradient-to-r from-rose-300 to-amber-200 shadow-lg shadow-neutral-900 hover:bg-purple-600 font-medium rounded-lg text-sm px-5 py-2.5"
+              className="focus:outline-none text-black bg-gradient-to-r from-rose-300 to-amber-200 shadow-lg shadow-neutral-900 hover:from-amber-300 hover:to-rose-400 hover:scale-95 transition-all duration-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-3 "
             >
               Sign in
             </button>

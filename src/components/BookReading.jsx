@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import noImage from "../assets/cover_not_found.jpg";
+import booklogo from "../assets/booklogo.png";
 
 const BookSearch = () => {
   const [query, setQuery] = useState("");
@@ -37,8 +38,10 @@ const BookSearch = () => {
   };
 
   const handleSaveBook = (book) => {
-    const savedBookIndex = savedBooks.findIndex((savedBook) => savedBook.key === book.key);
-  
+    const savedBookIndex = savedBooks.findIndex(
+      (savedBook) => savedBook.key === book.key
+    );
+
     if (savedBookIndex === -1) {
       // Book is not saved, so save it
       const simplifiedBook = {
@@ -50,13 +53,15 @@ const BookSearch = () => {
           ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
           : defaultImageURL,
       };
-  
+
       const updatedSavedBooks = [...savedBooks, simplifiedBook];
       setSavedBooks(updatedSavedBooks);
       localStorage.setItem("savedBooks", JSON.stringify(updatedSavedBooks));
     } else {
       // Book is already saved, so unsave it
-      const updatedSavedBooks = savedBooks.filter((savedBook) => savedBook.key !== book.key);
+      const updatedSavedBooks = savedBooks.filter(
+        (savedBook) => savedBook.key !== book.key
+      );
       setSavedBooks(updatedSavedBooks);
       localStorage.setItem("savedBooks", JSON.stringify(updatedSavedBooks));
     }
@@ -69,7 +74,6 @@ const BookSearch = () => {
       setSavedBooks(savedBooksArray);
     }
   }, []);
-  
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -102,40 +106,46 @@ const BookSearch = () => {
   }
 
   return (
-    <div className="">
-      <div className="lg:flex lg:flex-col space-y-4 ">
-        <div className="bg-[url('../assets/Synth.png')] bg-no-repeat bg-cover bg-center pb-32 w-full">
-          <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
-            <h2 className="text-4xl md:text-4xl sm:text-4xl font-bold mb-3 text-white mt-32">
-              Browse Our Vast Online Library of Books!
-            </h2>
-            <p className="text-md md:text-lg sm:text-lg mb-4 text-white">
-              We've amassed a large collection of programming books to help you
-              get the most out of your studies. HTML, JavaScript, Python and
-              even React, we got it all.
-            </p>
-            <div className="flex">
-              <input
-                type="text"
-                placeholder="Search for programming books..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
-              />
-              <button
-                onClick={handleSearch}
-                className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7"
-              >
-                Search
-              </button>
-            </div>
+    <div className="" id="books">
+      <div className="lg:flex lg:flex-col space-y-4 mb-20">
+        <div className="bg-[url('../assets/bookbg.png')] bg-no-repeat bg-cover bg-center pb-28 w-full">
+        <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
+          <img
+            src={booklogo}
+            alt="Library"
+            className="mb-4 mt-32 w-1/5 max-w-md mx-auto"
+          />
+          <h2 className="text-4xl md:text-4xl sm:text-4xl font-bold mb-0 text-rose-300 mt-0">
+            Browse Our Vast Online Library of Books!
+          </h2>
+          <br></br>
+          <p className="text-md md:text-lg sm:text-lg mb-4 text-white">
+            We've amassed a large collection of programming books to help you
+            get the most out of your studies. HTML, JavaScript, Python and even
+            React, we got it all.
+          </p>
+          <div className="flex">
+            <input
+              type="text"
+              placeholder="Search for programming books..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
+            />
+            <button
+              onClick={handleSearch}
+              className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7"
+            >
+              Search
+            </button>
           </div>
+        </div>
         </div>
 
         {searched &&
           books.length > 0 && ( // Conditionally render the message
             <div className="text-center md:text-start mx-0 md:mx-60 mb-4">
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-white">
                 Your search results for <strong>{query}</strong>
               </p>
             </div>
@@ -150,7 +160,7 @@ const BookSearch = () => {
             currentBooks.map((book) => (
               <div
                 key={book.key}
-                className="relative p-4 rounded-sm mb-2 mx-2 flex flex-col items-center justify-between transition-transform transform hover:scale-105 shadow-2xl md:shadow-lg"
+                className="relative p-4 rounded-md mb-2 mx-2 flex flex-col items-center justify-between transition-transform transform hover:scale-105 shadow-2xl md:shadow-lg bg-gray-100"
                 onMouseEnter={() => setHoveredBook(book)}
                 onMouseLeave={() => setHoveredBook(null)}
               >
@@ -195,7 +205,10 @@ const BookSearch = () => {
                 {hoveredBook === book && (
                   <div className="absolute bottom-100 left-0 right-0 p-2 bg-white text-black text-xs border rounded shadow-lg">
                     {/* Add book description or synopsis here */}
-                    <span className="font-semibold underline">Description:</span> {book.subject || "Not available"}
+                    <span className="font-semibold underline">
+                      Description:
+                    </span>{" "}
+                    {book.subject || "Not available"}
                   </div>
                 )}
               </div>
@@ -207,13 +220,13 @@ const BookSearch = () => {
       <div className="">
         {loading ? (
           <div className="flex items-center justify-center space-x-4">
-            <p className="text-xl md:text-lg sm:text-md font-semibold">
+            <p className="text-xl md:text-lg sm:text-md font-semibold text-white">
               Loading...
             </p>
           </div>
         ) : (
           books.length > 0 && (
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center justify-center space-x-4 mb-20">
               {currentPage > 1 && (
                 <button
                   onClick={() => paginate(currentPage - 1)}
@@ -222,7 +235,7 @@ const BookSearch = () => {
                   Prev
                 </button>
               )}
-              <p className="text-xl md:text-lg sm:text-md font-semibold">
+              <p className="text-xl md:text-lg sm:text-md font-semibold text-white">
                 Page {currentPage}
               </p>
               {indexOfLastItem < books.length && (

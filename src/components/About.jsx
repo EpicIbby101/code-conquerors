@@ -3,13 +3,13 @@ import React from 'react'
 const About = () => {
     return (
         // Review
-        <div class="container content-centre bg-neutral-800 py-12 mx-auto md:px-6">
+        <div class="container content-centre bg-neutral-700 py-12 mx-auto md:px-6">
         {/* Review image */}
         <section class="my-12">
             <div class="flex flex-wrap">
             <div class="shrink-0 grow-0 basis-auto md:w-2/12 lg:w-3/12">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).jpg"
-                class="w-3/4 rounded-lg shadow-lg dark:shadow-black/20" alt="Avatar" />
+                class="w-3/4 rounded-lg shadow-lg dark:shadow-black/20 ml-12" alt="Avatar" />
             </div>
 
             <div class="w-full shrink-0 grow-0 basis-auto text-center md:w-10/12 md:pl-6 md:text-left lg:w-9/12">

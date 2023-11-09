@@ -1,0 +1,83 @@
+body {
+    background-color: #e4e4e4;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.quiz {
+    width: 90%; /* Use a percentage for responsiveness */
+    max-width: 975px; /* Set a max-width for larger screens */
+    margin: 0 auto;
+    margin-top: 2.5vw; /* Use viewport width units for margin */
+    margin-bottom: 50px;
+}
+
+.question {
+    background-color: rgb(77, 10, 116);
+    color: white;
+    padding: 10px; /* Use viewport width units for padding */
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7vw; /* Use viewport width units for font-size */
+}
+
+.results {
+    background-color: #fff;
+    height: 300px;
+    text-align: center;
+}
+
+.congratulations {
+    background-color: rgb(77, 10, 116);
+    padding: 2vw; /* Use viewport width units for padding */
+    font-size: 4vw; /* Use viewport width units for font-size */
+    color: #fff;
+}
+
+.results-info {
+    margin-top: 4vw; /* Use viewport width units for margin */
+    margin-bottom: 4vw; /* Use viewport width units for margin */
+    font-size: 2vw; /* Use viewport width units for font-size */
+}
+
+.answer {
+    width: 100%;
+    background: #fff;
+    border: 2px solid rgb(77, 10, 116);
+    min-height: 70px;
+    cursor: pointer;
+    margin-bottom: 1vw; /* Use viewport width units for margin */
+    display: flex;
+}
+
+.answer:hover {
+    background-color: rgb(77, 10, 116); /* Change color on hover */
+    color: white; /* Change text color on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .quiz {
+        width: 90%;
+    }
+
+    .question {
+        font-size: 4vw;
+    }
+
+    .congratulations {
+        font-size: 6vw;
+    }
+
+    .results-info {
+        font-size: 3vw;
+    }
+
+    .answer {
+        margin-bottom: 3vw;
+    }
+}
