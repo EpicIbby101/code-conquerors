@@ -175,7 +175,7 @@ const BookSearch = () => {
                 <img
                   src={
                     book.cover_i
-                      ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+                      ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
                       : defaultImageURL
                   }
                   alt={`Cover for ${book.title}`}
