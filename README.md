@@ -6,20 +6,27 @@ Code Conquerors is your gateway to an extensive online library that empowers you
 
 - Progress tracking - Having a personal account allows users to keep track of their progress and continue where they left off.
 - A video library - Are you a visual learner? Access a plethora of educational videos based on your coding interests.
-- A book library - 
+- A book library - Browse books online and borrow them
 - Quizzes - Test your newfound knowledge with our coding quizzes
--
-
-
 
 ## Technologies Used
-- HTML
-- CSS
+- Vanilla React
 - Tailwind CSS
-- React.js
-- YouTube API
+- Axios and Node
+- Firebase
+- Material-UI
+- dotenv
 - Open Library API
-- Quiz 
+- Youtube API
+
+## Screenshots
+![Screenshot 2023-11-09 170319](https://github.com/EpicIbby101/code-conquerors/assets/86202881/16435a50-ec3f-4738-b31d-697009dbbbd5)
+![Screenshot 2023-11-09 170333](https://github.com/EpicIbby101/code-conquerors/assets/86202881/451f7c18-1d54-4fc7-9c2e-4db7451057ff)
+![Screenshot 2023-11-09 170440](https://github.com/EpicIbby101/code-conquerors/assets/86202881/5b0cfb0e-c4e3-4957-b422-f315aa4d4268)
+![Screenshot 2023-11-09 170452](https://github.com/EpicIbby101/code-conquerors/assets/86202881/7c64f745-afef-426d-9b00-47fc41f6678a)
+
+## Deployed App
+https://main--stellar-douhua-004744.netlify.app/
 
 ## License
 
