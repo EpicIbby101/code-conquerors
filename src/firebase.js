@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth';
 
 // TODO: PLACE ANY SENSITIVE DATA IN A .ENV
 const firebaseConfig = {
-    apiKey: "AIzaSyBhIUqFmOx_a3AsiMAX2jXMSxGIKXO7NEg",
+    apiKey: "AIzaSyBhIUqFmOx_a3AsiMAX2jXMSxGIKXO7NEg", // I cannot store this in an env without causing errors. Will need to fix
     authDomain: "code-conquerors.firebaseapp.com",
     projectId: "code-conquerors",
     storageBucket: "code-conquerors.appspot.com",

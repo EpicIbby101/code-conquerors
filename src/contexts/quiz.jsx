@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
-import questions from "../data";
-import { shuffleAnswers } from "../helpers";
+import questions from "../data/data";
+import { shuffleAnswers } from "../data/helpers";
 
 // Define the initial state for the quiz
 const initialState = {

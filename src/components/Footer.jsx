@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-neutral-900 dark:bg-gray-900">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <a className="flex items-center mb-4 sm:mb-0">
+          <a href="/" className="flex items-center mb-4 sm:mb-0">
             <img src={logo} className="h-8 mr-3" alt="Code Conquerors Logo" />
             <span className="self-center text-2xl text-rose-200 font-semibold whitespace-nowrap">
               Code Conquerors
@@ -15,7 +15,7 @@ const Footer = () => {
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li>
               <a
-                href="#"
+                href="/"
                 className="mr-4 text-rose-300 hover:underline md:mr-6 "
               >
                 About
@@ -23,14 +23,14 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="mr-4 text-rose-300 hover:underline md:mr-6"
               >
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#" className="text-rose-300 hover:underline">
+              <a href="/" className="text-rose-300 hover:underline">
                 Contact
               </a>
             </li>
@@ -39,12 +39,15 @@ const Footer = () => {
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
           <span class="text-sm text-amber-200 sm:text-center dark:text-gray-400">
-            © 2023 <a class="hover:underline">Code Conquerors™</a>. All Rights
-            Reserved.
+            © 2023{" "}
+            <a href="/" className="hover:underline">
+              Code Conquerors™
+            </a>
+            . All Rights Reserved.
           </span>
           <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
             <a
-              href="#"
+              href="/"
               class="text-amber-200 hover:text-neutral-500 dark:hover:text-white"
             >
               <svg
@@ -63,7 +66,7 @@ const Footer = () => {
               <span class="sr-only">Facebook page</span>
             </a>
             <a
-              href="#"
+              href="/"
               class="text-amber-200 hover:text-gray-900 dark:hover:text-white"
             >
               <svg
@@ -78,7 +81,7 @@ const Footer = () => {
               <span class="sr-only">Discord community</span>
             </a>
             <a
-              href="#"
+              href="/"
               class="text-amber-200 hover:text-gray-900 dark:hover:text-white"
             >
               <svg
@@ -97,7 +100,7 @@ const Footer = () => {
               <span class="sr-only">Twitter page</span>
             </a>
             <a
-              href="#"
+              href="/"
               class="text-amber-200 hover:text-gray-900 dark:hover:text-white"
             >
               <svg
