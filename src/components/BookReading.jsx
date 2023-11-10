@@ -9,7 +9,7 @@ const BookSearch = () => {
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
-  const defaultImageURL = noImage; // Specify your custom default image URL.
+  const defaultImageURL = noImage;
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
   const [hoveredBook, setHoveredBook] = useState(null);
@@ -42,7 +42,7 @@ const BookSearch = () => {
       const savedBookIndex = prevSavedBooks.findIndex(
         (savedBook) => savedBook.key === book.key
       );
-  
+
       if (savedBookIndex === -1) {
         // Book is not saved, so save it
         const simplifiedBook = {
@@ -54,7 +54,7 @@ const BookSearch = () => {
             ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
             : defaultImageURL,
         };
-  
+
         const updatedSavedBooks = [...prevSavedBooks, simplifiedBook];
         localStorage.setItem("savedBooks", JSON.stringify(updatedSavedBooks));
         return updatedSavedBooks;
@@ -68,7 +68,6 @@ const BookSearch = () => {
       }
     });
   };
-  
 
   useEffect(() => {
     const savedBooksData = localStorage.getItem("savedBooks");
@@ -108,46 +107,41 @@ const BookSearch = () => {
     return title;
   }
 
-  const updateSavedBooks = (updatedSavedBooks) => {
-    setSavedBooks(updatedSavedBooks);
-  };
-  
-
   return (
     <div className="" id="books">
       <div className="lg:flex lg:flex-col space-y-4 mb-10">
         <div className="bg-[url('../assets/bookbg.png')] bg-no-repeat bg-cover bg-center pb-28 w-full">
-        <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
-          <img
-            src={booklogo}
-            alt="Library"
-            className="mb-4 mt-32 w-1/5 max-w-md mx-auto"
-          />
-          <h2 className="text-4xl md:text-4xl sm:text-4xl font-bold mb-0 text-rose-300 mt-0">
-            Browse Our Vast Online Library of Books!
-          </h2>
-          <br></br>
-          <p className="text-md md:text-lg sm:text-lg mb-4 text-white">
-            We've amassed a large collection of programming books to help you
-            get the most out of your studies. HTML, JavaScript, Python and even
-            React, we got it all.
-          </p>
-          <div className="flex">
-            <input
-              type="text"
-              placeholder="Search for programming books..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
+          <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
+            <img
+              src={booklogo}
+              alt="Library"
+              className="mb-4 mt-32 w-1/5 max-w-md mx-auto"
             />
-            <button
-              onClick={handleSearch}
-              className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7"
-            >
-              Search
-            </button>
+            <h2 className="text-4xl md:text-4xl sm:text-4xl font-bold mb-0 text-rose-300 mt-0">
+              Browse Our Vast Online Library of Books!
+            </h2>
+            <br></br>
+            <p className="text-md md:text-lg sm:text-lg mb-4 text-white">
+              We've amassed a large collection of programming books to help you
+              get the most out of your studies. HTML, JavaScript, Python and
+              even React, we got it all.
+            </p>
+            <div className="flex">
+              <input
+                type="text"
+                placeholder="Search for programming books..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="border p-3 py-4 pl-10 rounded-l-full w-full text-lg outline-none"
+              />
+              <button
+                onClick={handleSearch}
+                className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7"
+              >
+                Search
+              </button>
+            </div>
           </div>
-        </div>
         </div>
 
         {searched &&
@@ -212,7 +206,6 @@ const BookSearch = () => {
                 </button>
                 {hoveredBook === book && (
                   <div className="absolute bottom-100 left-0 right-0 p-2 bg-white text-black text-xs border rounded shadow-lg">
-                    {/* Add book description or synopsis here */}
                     <span className="font-semibold underline">
                       Description:
                     </span>{" "}

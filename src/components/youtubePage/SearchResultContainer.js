@@ -15,7 +15,13 @@ class SearchResultContainer extends Component {
   searchVideo = (query) => {
     this.setState({ isLoading: true });
     API.search(query)
-      .then((res) => this.setState({ results: res.data.items, hasSearched: true, isLoading: false }))
+      .then((res) =>
+        this.setState({
+          results: res.data.items,
+          hasSearched: true,
+          isLoading: false,
+        })
+      )
       .catch((err) => {
         console.log(err);
         this.setState({ isLoading: false });
@@ -50,11 +56,14 @@ class SearchResultContainer extends Component {
         <div className="container pb-0 bg-neutral-800">
           {hasSearched && (
             <>
-              {isLoading && <p className="text-white text-center mt-4">Loading...</p>}
+              {isLoading && (
+                <p className="text-white text-center mt-4">Loading...</p>
+              )}
               {!isLoading && results.length > 0 ? (
                 <>
                   <p className="text-white text-lg text-center mt-4">
-                    Your search results for <span className="font-semibold">{search}</span>
+                    Your search results for{" "}
+                    <span className="font-semibold">{search}</span>
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {results.map((result) => (

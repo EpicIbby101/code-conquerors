@@ -36,9 +36,9 @@ function App() {
             <SearchResultContainer />
           </Element>
           <Element name="book">
-          <QuizProvider>
-            <Quiz />
-          </QuizProvider>
+            <QuizProvider>
+              <Quiz />
+            </QuizProvider>
           </Element>
           <About />
           <Footer />

@@ -1,5 +1,4 @@
 import React from "react";
-import heroImage from "../images/heroImage.jpg";
 import ccLogo from "../assets/cclogo.png";
 
 const HeroSection = () => {
