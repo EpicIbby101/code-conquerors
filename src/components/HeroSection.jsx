@@ -1,11 +1,22 @@
 import React from 'react'
 import heroImage from "../images/heroImage.jpg"
 
+function textToSpeech(){
+    const text = `Code Conqueror
+    Learn to code from home! `
+    const value = new SpeechSynthesisUtterance(text);
+
+    window.speechSynthesis.speak(value)
+
+    
+}
+
 const HeroSection = () => {
     return (
         <div heroSection>
             <div class="container mx-auto px-4 py-10 bg-neutral-800 flex items-center justify-between">
                 <div className="text-left font-bold text-xl px-20 py-40 text-rose-300 rounded-md">
+                <button className="bg-rose-300 hover:bg-rose-600 text-white text-sm font-normal rounded-full p-2 pl-3 ml-1 pr-7 " onClick={textToSpeech}>Text to Speech 📢</button>
                     <h1>Code Conquerors</h1>
 
                     <div className="text-left font-bold text-5xl py-10 text-white rounded-md">
