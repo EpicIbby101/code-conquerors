@@ -101,10 +101,23 @@ const BookSearch = () => {
     return title;
   }
 
+  function textToSpeach(){
+    
+    const text = ` Browse Our Vast Online Library of Books!
+      We've amassed a large collection of programming books to help you
+      get the most out of your studies. HTML, JavaScript, Python and
+      even React, we got it all. `
+    const value = new SpeechSynthesisUtterance(text);
+
+    window.speechSynthesis.speak(value)
+
+  }
+
   return (
     <div className="">
       <div className="lg:flex lg:flex-col space-y-4 ">
         <div className="bg-[url('../assets/Synth.png')] bg-no-repeat bg-cover bg-center pb-32 w-full">
+        <button className="bg-rose-300 hover:bg-rose-600 text-white p-2 rounded-r-full ml-1 px-6 pr-7 " onClick={textToSpeach}>Text to Speech 📢</button>
           <div className="lg:w-1/2 md:w-full sm:w-full mx-auto text-center ">
             <h2 className="text-4xl md:text-4xl sm:text-4xl font-bold mb-3 text-white mt-32">
               Browse Our Vast Online Library of Books!
